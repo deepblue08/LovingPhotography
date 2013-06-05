@@ -1,0 +1,15 @@
+﻿@model PhotoManagement.Models.Client
+
+@using(Html.BeginForm()){
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+<h2>@ViewBag.Title</h2>
+    <fieldset>
+        <legend>User Zone</legend>
+<div class="editor-label">@Html.LabelFor(Model=>Model.UserName)</div>
+<div class="editor-field">@Html.EditorFor(Model=>Model.UserName)</div>
+<div class="editor-label">@Html.LabelFor(Model=>Model.Password)</div>
+<div class="editor-field">@Html.EditorFor(Model=>Model.Password)</div>
+        <p><input type="submit" /></p>
+        </fieldset>
+}

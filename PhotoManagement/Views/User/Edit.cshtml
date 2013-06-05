@@ -1,0 +1,54 @@
+﻿@model PhotoManagement.Models.Photo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Photo</legend>
+
+        @Html.HiddenFor(model => model.PhotoId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientId)
+            @Html.ValidationMessageFor(model => model.ClientId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhotoDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotoDescription)
+            @Html.ValidationMessageFor(model => model.PhotoDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhotoFileName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotoFileName)
+            @Html.ValidationMessageFor(model => model.PhotoFileName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
